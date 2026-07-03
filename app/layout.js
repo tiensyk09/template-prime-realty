@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { CartProvider } from '@/components/CartContext';
 import LayoutWrapper from '@/components/LayoutWrapper';
 import PluginRunner from '@/components/PluginRunner';
+import TopLoader from '@/components/TopLoader';
 
 // Nạp Inter kèm subset tiếng Việt để dấu hiển thị đúng, không fallback sang font hệ thống
 const inter = Inter({
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="vi" className={inter.variable}>
       <body className="bg-white text-gray-800 font-sans antialiased min-h-screen">
+        <TopLoader color="#14477e" />
         <CartProvider>
           <LayoutWrapper>
             {children}
