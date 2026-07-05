@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { LogoBuilding, IconLocation, IconMail, IconGlobe, IconPhoneFilled } from '@/components/icons';
 import { SocialIcon, buildSocialLinks } from '@/components/SocialLinks';
+import { Editable } from '@/components/LiveEditor';
 
 const NAVY = '#0b2440';
 const GOLD = '#c9a24b';
@@ -51,8 +52,8 @@ export default function Footer() {
             <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', marginBottom: 16 }}>
               <LogoBuilding size={42} color={GOLD} />
               <div style={{ lineHeight: 1 }}>
-                <span style={{ display: 'block', fontSize: 20, fontWeight: 900, letterSpacing: '0.04em', color: '#fff' }}>PRIME <span style={{ color: GOLD }}>REALTY</span></span>
-                <span style={{ display: 'block', fontSize: 7.5, fontWeight: 700, letterSpacing: '0.2em', color: '#7d8ea3', marginTop: 4, textTransform: 'uppercase' }}>Nơi tìm kiếm tổ ấm</span>
+                <span style={{ display: 'block', fontSize: 20, fontWeight: 900, letterSpacing: '0.04em', color: '#fff' }}><Editable k="brand_name1" def="PRIME" as="span" /> <Editable k="brand_name2" def="REALTY" as="span" style={{ color: GOLD }} /></span>
+                <Editable k="brand_tagline" def="Nơi tìm kiếm tổ ấm" as="span" style={{ display: 'block', fontSize: 7.5, fontWeight: 700, letterSpacing: '0.2em', color: '#7d8ea3', marginTop: 4, textTransform: 'uppercase' }} />
               </div>
             </Link>
             <p style={{ fontSize: 12.5, lineHeight: 1.75, fontWeight: 500, marginBottom: 18, maxWidth: 260 }}>
@@ -96,19 +97,19 @@ export default function Footer() {
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 13, fontSize: 12.5, fontWeight: 500 }}>
               <li style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
                 <IconLocation size={16} style={{ flexShrink: 0, marginTop: 1, color: GOLD }} />
-                <span>123 Đường Nguyễn Huệ,<br />Quận 1, TP. Hồ Chí Minh</span>
+                <Editable k="contact_address" def={"123 Đường Nguyễn Huệ,\nQuận 1, TP. Hồ Chí Minh"} as="span" multiline />
               </li>
               <li style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                 <IconPhoneFilled size={15} style={{ flexShrink: 0, color: GOLD }} />
-                <span style={{ color: '#fff', fontWeight: 800, fontSize: 13.5 }}>0909 123 456</span>
+                <Editable k="contact_phone" def="0909 123 456" as="span" style={{ color: '#fff', fontWeight: 800, fontSize: 13.5 }} />
               </li>
               <li style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                 <IconMail size={16} style={{ flexShrink: 0, color: GOLD }} />
-                <span>info@nhadatprime.vn</span>
+                <Editable k="contact_email" def="info@nhadatprime.vn" as="span" />
               </li>
               <li style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                 <IconGlobe size={16} style={{ flexShrink: 0, color: GOLD }} />
-                <span>www.nhadatprime.vn</span>
+                <Editable k="contact_website" def="www.nhadatprime.vn" as="span" />
               </li>
             </ul>
           </div>
